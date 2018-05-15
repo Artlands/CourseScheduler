@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="index.css">
+	<title>Course Scheduler</title>
+</head>
+
+<body>
+<div id="container" class="grid-container">
+
+  <div class="grid-item-left">
+    <div>
+      <h4>Upload History Records</h4>
+      <label id="upload-btn" for="json_upload" >Choose files</label>
+      <input type="file" id="json_upload" name="json_uploads[]" multiple accept=".json"/>
+    </div>
+    <div class="fileslist">
+      <p>No files currently selected for upload</p>
+    </div>
+    <div>
+      <button id="history-btn" class="btn-create">Read history record</button>
+    </div>
+  </div>
+
+  <div class="grid-item-right">
+    <div class="title">
+      <h4>Scheduler Table: <span id="time" contenteditable='true'>SemesterYear</span></h4>
+    </div>
+    <div class="search"><input id="myInput" type="text" placeholder="Search Course..."></div>
+
+    <div id="schedule-table">
+      <table>
+        <thead>
+          <tr id="teacher-list">
+            <td class="id" rowspan="2">#</td>
+            <td class="course" rowspan="2">Course</td>
+            <td class="section" rowspan="2">Section</td>
+            <th class="add-teacher"><div class="add-teach-btn">+</div></th>
+          </tr>
+          <tr id="workload">
+            <td class="id tdhide">#</td>
+            <td class="course tdhide">Course</td>
+            <td class="section tdhide">Section</td>
+            <th class="work-last"><i class="fas fa-unlock"></i></th>
+          </tr>
+        </thead>
+
+      </table>
+      <table>
+        <tbody>
+          <tr class="panel" id="undergraduate">
+            <th class="add-course noborder tdleft"><div class="add-btn">+</div></th>
+            <td class="noborder toggle"><div class="textposition">Undergraduate Courses</div></td>
+            <td class="noborder toggle"></td>
+            <td class="noborder toggle tdright"></td>
+          </tr>
+        </tbody>
+      <table >
+        <tbody>
+          <tr class="panel" id="selective">
+            <th class="add-course noborder tdleft"><div class="add-btn">+</div></th>
+            <td class="noborder toggle"><div class="textposition">Selective Courses</div></td>
+            <td class="noborder toggle"></td>
+            <td class="noborder toggle tdright"></td>
+          </tr>
+        </tbody>
+      </table>
+      <table >
+        <tbody>
+          <tr class="panel" id="graduate">
+            <th class="add-course noborder tdleft"><div class="add-btn">+</div></th>
+            <td class="noborder toggle"><div class="textposition">Graduate Courses</div></td>
+            <td class="noborder toggle"></td>
+            <td class="noborder toggle tdright"></td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
+          <tr id="summary">
+            <td class="id" rowspan="2"></td>
+            <td class="course" rowspan="2">Summary</td>
+            <td class="add-section" rowspan="2"></td>
+            <td class="sum-last"></td>
+          </tr>
+          <tr id="delete-teach">
+            <td class="id tdhide"></td>
+            <td class="course tdhide">Summary</td>
+            <td class="add-section tdhide"></td>
+            <td class="delete-last"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table>
+        <tbody class="course_model hide">
+          <tr>
+            <td class="id" rowspan="5"></td>
+            <td class="course" rowspan="5"><div contenteditable='true'>Undefined</div></td>
+            <td class="add-section">001</td>
+            <td class="delete"><div class="delet-but"><i class="fas fa-trash-alt"></i></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <button id="hide-btn">Hide Sidebar</button>
+      <!-- <button id="print-btn">Print Table</button> -->
+      <button id="download-btn">Download file</button>
+    </div>
+  </div>
+
+  <div id="all_template" style="display: none;">
+    <div id="template">
+      No history record!
+    </div>
+    <div id="teacher_temp">
+      <b>name<b>
+    </div>
+    <div id="year_temp">
+      <b>year<b>
+    </div>
+    <div>
+      <ul id="ul_temp"></ul>
+    </div>
+    <div id="course_temp">
+      <b>name<b>
+    </div>
+    <div>
+      <p id="p_temp"><b>year:</b></p>
+    </div>
+  </div>
+
+</div>
+<script src="https://unpkg.com/tippy.js@2.5.2/dist/tippy.all.min.js"></script>
+<script src="readfile.js"></script>
+<script src="table.js"></script>
+<script src="main.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
+integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+crossorigin="anonymous"></script>
+
+
+</body>
+</html>
